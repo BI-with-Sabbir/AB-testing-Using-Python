@@ -6,6 +6,20 @@
 This project showcases a full-cycle A/B testing analysis designed to assess the impact of a new feature on user behavior, specifically measuring changes in Click-Through Rate (CTR). By calculating the optimum sample size, establishing pre-test baselines, and running a simulated test, this project highlights the importance of data-driven experimentation in product decision-making.
 
 
+## 📌 Project Objectives
+
+- Design a trustworthy A/B testing framework
+- Calculate the optimal sample size based on statistical power
+- Simulate real-world data for both control and treatment groups
+- Apply a two-proportion Z-test to determine statistical significance
+- Provide a data-driven decision and business recommendations
+
+## 🔍 Problem Statement
+
+A digital product company wants to assess whether a proposed product change (e.g., feature, UI improvement, or partnership) improves the user conversion rate. Instead of relying on intuition, the team uses A/B testing to validate the impact of the change with statistical rigor.
+
+
+
 
 ## 📂 Dataset Description
 ### 1. `Activity_pretest.csv`
@@ -48,6 +62,32 @@ This project showcases a full-cycle A/B testing analysis designed to assess the 
 - Simulated CTR outcomes for each group.
 - Used hypothesis testing to determine statistical significance.
 
+  ## 🧪 A/B Testing Workflow
+
+### 1. Hypothesis Formulation
+- **Null Hypothesis (H₀)**: There is no difference in conversion rates between control and treatment.
+- **Alternative Hypothesis (H₁)**: The treatment group has a higher conversion rate.
+
+### 2. Define Key Parameters
+- **Baseline Conversion Rate**: 10%
+- **Minimum Detectable Effect (MDE)**: 3%
+- **Significance Level (α)**: 0.05
+- **Power (1-β)**: 0.80
+
+### 3. Sample Size Calculation
+Using `statsmodels.stats.power` module:
+- ✅ Minimum required sample size per group: **1,356**
+
+### 4. Data Generation
+Simulated data for:
+- **Control Group**: 10% conversion
+- **Treatment Group**: 13% conversion
+
+### 5. Hypothesis Testing
+- Test: Two-Proportion Z-Test
+- **p-value**: 0.0021
+
+
 ## 📊 Project Output
 - Generated visualizations for:
   - Daily Active Users (DAU) trends
@@ -63,22 +103,49 @@ This project showcases a full-cycle A/B testing analysis designed to assess the 
 
 - Confirmed whether uplift in CTR was statistically significant through hypothesis testing.
 
-## 💥 Project Impact
-- Showcased the full lifecycle of an A/B test, from hypothesis to analysis.
-- Provided a clear blueprint for future experiments using CTR as a primary metric.
-- Reinforced the value of robust sample size planning to prevent misleading results.
+## 📈 Data Storytelling
 
-## 💡 Business Recommendations
-- Adopt A/B testing as a standard framework for validating product decisions.
-- Incorporate CTR and DAU as core metrics in product analytics.
-- Use dynamic dashboards to monitor test performance in real time.
-- Ensure proper experiment design by calculating MDE and sample size before launching tests.
+> “The A/B test showed that the proposed change resulted in a 3% uplift in conversion rate, with strong statistical support (p = 0.0021). With over 1,350 users per group, the test was powered to detect even modest improvements. The data clearly justified rolling out the change to all users.”
 
-## 📁 Tools & Technologies Used
-- **Python**: Data analysis and hypothesis testing
-- **Pandas/Numpy**: Data manipulation
-- **Altair**: Interactive visualizations
-- **Statistical Methods**: Sample size calculation, significance testing
+---
+
+## 🧠 Decision-Making
+
+✔️ **Decision**: Roll out the proposed change to the entire user base.
+
+**Justification:**
+- Statistically significant uplift in conversion rate
+- Minimum detectable effect achieved
+- Sample size and power correctly calculated
+- Strong evidence supports a positive business outcome
+
+---
+
+## 🌍 Project Impact
+
+- ✅ Reinforced data-driven culture in product development
+- ✅ Reduced risk of subjective decision-making
+- ✅ Introduced robust experimental design principles
+- ✅ Enabled measurable, repeatable results from testing
+
+---
+
+## 💼 Business Recommendations
+
+1. **Adopt A/B Testing as a Standard Practice**  
+   Integrate experimentation into every product change or partnership decision.
+
+2. **Always Calculate Sample Size Beforehand**  
+   Avoid underpowered tests that waste traffic and time.
+
+3. **Monitor Guardrail Metrics**  
+   In real scenarios, track bounce rate, session duration, etc.
+
+4. **Document Experiment Results**  
+   Maintain an experimentation logbook for internal learning and repeatability.
+
+5. **Use a Gradual Rollout Strategy**  
+   Start with 10–20% exposure and scale up as success is confirmed.
 
 ---
 

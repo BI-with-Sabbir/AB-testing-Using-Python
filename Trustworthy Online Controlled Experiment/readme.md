@@ -1,130 +1,133 @@
-# A/B Testing Process with Optimum Sample Size Calculation
+# 🧪 A/B Testing Process with Optimum Sample Size Calculation
 
-## 📈 Project Overview
-
-![A/B Testing Overview](https://github.com/user-attachments/assets/24de73e6-517e-4293-bb34-bae0703a351f)
-
-This project showcases a complete A/B testing pipeline to evaluate the impact of a new feature on user behavior, specifically changes in Click-Through Rate (CTR). From calculating the optimal sample size to conducting statistical hypothesis testing, the project demonstrates how experimentation can guide product decisions.
+## 🧭 Context / Table of Contents
+- [📌 Project Overview](#project-overview)
+- [🎯 Project Objectives](#project-objectives)
+- [🔍 Problem Statement](#problem-statement)
+- [🗂️ Dataset Description](#dataset-description)
+- [🧪 A/B Testing Process](#ab-testing-process)
+- [📊 Project Output](#project-output)
+- [📈 Data Storytelling](#data-storytelling)
+- [🧠 Decision-Making](#decision-making)
+- [🌍 Project Impact](#project-impact)
+- [💼 Business Recommendations](#business-recommendations)
 
 ---
 
-## 📊 Project Objectives
+## 📌 Project Overview
 
-* Design a statistically sound A/B testing framework
-* Calculate optimal sample size using statistical power
-* Simulate real-world control and treatment group data
-* Conduct hypothesis testing using a two-proportion Z-test
-* Drive a business decision backed by data
+![Project Banner](https://github.com/user-attachments/assets/24de73e6-517e-4293-bb34-bae0703a351f)
+
+This project demonstrates a complete A/B testing workflow to evaluate the impact of a new feature on user behavior (Click-Through Rate - CTR). It covers optimum sample size calculation, baseline metric setup, randomized group assignment, simulation, hypothesis testing, and final recommendations.
+
+---
+
+## 🎯 Project Objectives
+
+- Design a statistically sound A/B testing framework.
+- Calculate optimal sample size using confidence level, power, and MDE.
+- Simulate test/control group data and CTR performance.
+- Apply Two-Proportion Z-Test for result validation.
+- Communicate outcomes and suggest business actions.
 
 ---
 
 ## 🔍 Problem Statement
 
-A digital product team wants to evaluate whether a UI or feature change improves the user conversion rate. The team opts to use A/B testing rather than intuition to ensure measurable results.
+A digital product team wants to evaluate whether a proposed change (UI/feature/offer) improves the conversion rate. Instead of deploying it blindly, they want to validate the effect through a rigorous A/B testing process.
 
 ---
 
-## 📂 Dataset Description
+## 🗂️ Dataset Description
 
-* **Activity\_pretest.csv**: 31-day user activity logs (`userid`, `dt`, `activity_level`) to calculate Daily Active Users (DAU).
-* **Ctr\_pretest.csv**: Historical CTR data to establish a pre-test baseline.
-* **Activity\_all.csv**: Tracks user activity across control and treatment groups.
-* **Assignments.csv**: Group assignment data for 8,807 users.
-* **Ctr\_all.csv**: Post-test CTR data across both groups.
+| Dataset Name        | Purpose |
+|---------------------|---------|
+| `Activity_pretest.csv` | Logs user activity over 31 days to calculate DAU |
+| `Ctr_pretest.csv`      | Provides baseline CTR mean and standard deviation |
+| `Activity_all.csv`     | Tracks activity levels across test groups |
+| `Assignments.csv`      | Records test/control group assignment for 8807 users |
+| `Ctr_all.csv`          | Shows CTR values for both groups after rollout |
 
 ---
 
-## 🧪 A/B Testing Workflow
+## 🧪 A/B Testing Process
 
-### 1. Pre-Test Metrics Calculation
+### 📍 Step 1: Pre-Test Metrics
+- Calculated **Daily Active Users (DAU)** from activity logs.
+- Found baseline **CTR** = **33.0%**, SD = **1.73%**
 
-* **DAU** calculated for users with `activity_level > 0`.
-* CTR baseline calculated as **33.0%** with a standard deviation of **1.73%**.
+### 📍 Step 2: Define Parameters
+- Baseline CTR: **10%**
+- Minimum Detectable Effect (MDE): **3%**
+- Significance Level (α): **0.05**
+- Power (1-β): **80%**
 
-### 2. Minimum Detectable Effect (MDE)
+### 📍 Step 3: Sample Size Calculation
+Used `statsmodels` to find that each group needs **at least 1,356 users**.
 
-* Chosen MDE: **2%** to represent a meaningful uplift beyond baseline noise.
+### 📍 Step 4: Simulate & Assign Data
+- Simulated outcomes for:
+  - **Control Group**: 10% CTR
+  - **Treatment Group**: 13% CTR
+- Randomly assigned users into groups.
 
-### 3. Sample Size Calculation
-
-* Confidence Level: 95%
-* Power: 80%
-* MDE: 2%
-* Result: **1,356 users per group**
-
-### 4. Randomized Assignment
-
-* Randomized users into Control (A) and Treatment (B).
-
-### 5. Hypothesis Testing
-
-* **Null Hypothesis (H0)**: No difference in conversion rates.
-* **Alternative Hypothesis (H1)**: Treatment conversion rate is higher.
-* Test: **Two-Proportion Z-Test**
-* **p-value**: **0.0021** (statistically significant)
+### 📍 Step 5: Hypothesis Testing
+- Applied **Two-Proportion Z-Test**
+- **p-value = 0.0021** → Statistically significant
 
 ---
 
 ## 📊 Project Output
 
-* Visuals:
+Visualizations included:
+- 📈 Daily Active Users trend  
+- 🎯 CTR distribution before & after test  
+- 📊 Sample size calculator output  
+- ✅ Significant uplift in Treatment group CTR
 
-  * DAU trend
-  * CTR baseline distribution
-  * Sample size calculator result
-
-* Result:
-
-  * Treatment group showed **3% higher CTR**.
-  * Statistically significant improvement confirmed via hypothesis test.
-
-![DAU Trend](https://github.com/user-attachments/assets/08f5c67e-e86c-4834-96e3-92fd5f1c6d5a)
-![CTR Distribution](https://github.com/user-attachments/assets/636970ce-a235-43f2-9adf-3ec544acc622)
+![DAU](https://github.com/user-attachments/assets/08f5c67e-e86c-4834-96e3-92fd5f1c6d5a)
+![CTR](https://github.com/user-attachments/assets/636970ce-a235-43f2-9adf-3ec544acc622)
+![Sample Size](https://github.com/user-attachments/assets/79da2051-ec54-4306-8dad-093c74b2d890)
 
 ---
 
 ## 📈 Data Storytelling
 
-> “The A/B test showed a **3% uplift** in conversion rate for the treatment group. The test met all statistical thresholds for reliability, confirming the new feature positively impacted user behavior.”
+> “The A/B test showed a **3% uplift in CTR**, backed by a **p-value of 0.0021**. With 1,350+ users per group and proper power/MDE setup, this confirms the effectiveness of the change. The data supports a full rollout.”
 
 ---
 
 ## 🧠 Decision-Making
 
-* **Decision**: Roll out the change to all users.
-* **Why?**:
+✔️ **Decision**: Roll out to 100% of users
 
-  * Statistically significant result (p = 0.0021)
-  * Required sample size and power met
-  * Meaningful and positive uplift in conversion
+**Why?**
+- Statistically significant uplift
+- Minimum required power and sample size achieved
+- Business value confirmed
 
 ---
 
 ## 🌍 Project Impact
 
-* Reinforced **data-driven decision-making**
-* Reduced **subjective bias** in feature releases
-* Built a **repeatable experimentation framework**
-* Delivered **measurable insights** for product improvements
+- ✅ Strengthened culture of data-driven product testing
+- ✅ Reduced guesswork in feature releases
+- ✅ Set a reusable testing framework for future launches
 
 ---
 
 ## 💼 Business Recommendations
 
-1. **Institutionalize A/B Testing**
+1. **Standardize A/B Testing for All Feature Launches**
+2. **Always Calculate Sample Size Before Running Tests**
+3. **Track Guardrail Metrics (Bounce, Time-on-Page, etc.)**
+4. **Document Learnings from Every Experiment**
+5. **Use Controlled Rollouts (10–20% → 100%)**
 
-   * Adopt testing for all major feature releases.
-2. **Pre-Test Sample Size Calculation**
+---
 
-   * Ensure statistical power in every experiment.
-3. **Track Guardrail Metrics**
+## 🏷️ Tags
 
-   * Include bounce rate, session length, etc., during live tests.
-4. **Maintain Experiment Logs**
-
-   * Build internal knowledge around testing outcomes.
-5. **Use Phased Rollouts**
-
-   * Start with 10–20% exposure to reduce risks before full release.
+`A/B Testing` `Z-Test` `CTR Analysis` `Hypothesis Testing` `Product Analytics` `Experimentation` `Sample Size` `MDE` `Python` `statsmodels`
 
 ---

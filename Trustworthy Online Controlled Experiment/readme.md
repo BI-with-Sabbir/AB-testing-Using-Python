@@ -1,16 +1,16 @@
 # 🧪 A/B Testing Process with Optimum Sample Size Calculation
 
 ## 🧭 Context / Table of Contents
-- [📌 Project Overview](#project-overview)
-- [🎯 Project Objectives](#project-objectives)
-- [🔍 Problem Statement](#problem-statement)
-- [🗂️ Dataset Description](#dataset-description)
-- [🧪 A/B Testing Process](#ab-testing-process)
-- [📊 Project Output](#project-output)
-- [📈 Data Storytelling](#data-storytelling)
-- [🧠 Decision-Making](#decision-making)
-- [🌍 Project Impact](#project-impact)
-- [💼 Business Recommendations](#business-recommendations)
+- [📌 Project Overview](#-project-overview)
+- [🎯 Project Objectives](#-project-objectives)
+- [🔍 Problem Statement](#-problem-statement)
+- [🗂️ Dataset Description](#-dataset-description)
+- [🧪 A/B Testing Process](#-ab-testing-process)
+- [📊 Project Output](#-project-output)
+- [📈 Data Storytelling](#-data-storytelling)
+- [🧠 Decision-Making](#-decision-making)
+- [🌍 Project Impact](#-project-impact)
+- [💼 Business Recommendations](#-business-recommendations)
 
 ---
 

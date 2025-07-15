@@ -1,153 +1,130 @@
 # A/B Testing Process with Optimum Sample Size Calculation
 
-## 📌 Project Overview
-![image](https://github.com/user-attachments/assets/24de73e6-517e-4293-bb34-bae0703a351f)
+## 📈 Project Overview
 
-This project showcases a full-cycle A/B testing analysis designed to assess the impact of a new feature on user behavior, specifically measuring changes in Click-Through Rate (CTR). By calculating the optimum sample size, establishing pre-test baselines, and running a simulated test, this project highlights the importance of data-driven experimentation in product decision-making.
+![A/B Testing Overview](https://github.com/user-attachments/assets/24de73e6-517e-4293-bb34-bae0703a351f)
 
+This project showcases a complete A/B testing pipeline to evaluate the impact of a new feature on user behavior, specifically changes in Click-Through Rate (CTR). From calculating the optimal sample size to conducting statistical hypothesis testing, the project demonstrates how experimentation can guide product decisions.
 
-## 📌 Project Objectives
+---
 
-- Design a trustworthy A/B testing framework
-- Calculate the optimal sample size based on statistical power
-- Simulate real-world data for both control and treatment groups
-- Apply a two-proportion Z-test to determine statistical significance
-- Provide a data-driven decision and business recommendations
+## 📊 Project Objectives
+
+* Design a statistically sound A/B testing framework
+* Calculate optimal sample size using statistical power
+* Simulate real-world control and treatment group data
+* Conduct hypothesis testing using a two-proportion Z-test
+* Drive a business decision backed by data
+
+---
 
 ## 🔍 Problem Statement
 
-A digital product company wants to assess whether a proposed product change (e.g., feature, UI improvement, or partnership) improves the user conversion rate. Instead of relying on intuition, the team uses A/B testing to validate the impact of the change with statistical rigor.
+A digital product team wants to evaluate whether a UI or feature change improves the user conversion rate. The team opts to use A/B testing rather than intuition to ensure measurable results.
 
-
-
+---
 
 ## 📂 Dataset Description
-### 1. `Activity_pretest.csv`
-- Contains user-level activity logs over a 31-day period.
-- Key columns: `userid`, `dt` (date), `activity_level`
-- Used to calculate Daily Active Users (DAU) as a pre-test metric.
 
-### 2. `Ctr_pretest.csv`
-- Contains CTR statistics before launching the test.
-- Used to calculate the baseline CTR mean and standard deviation.
+* **Activity\_pretest.csv**: 31-day user activity logs (`userid`, `dt`, `activity_level`) to calculate Daily Active Users (DAU).
+* **Ctr\_pretest.csv**: Historical CTR data to establish a pre-test baseline.
+* **Activity\_all.csv**: Tracks user activity across control and treatment groups.
+* **Assignments.csv**: Group assignment data for 8,807 users.
+* **Ctr\_all.csv**: Post-test CTR data across both groups.
 
-### 3. 'Activity_all.csv'
--Comparing Activity (activeness and activity_level) between the Groups.
+---
 
-### 4. 'Assignments.csv'
-- We first need to randomly assign the test to 8,807 Users.
-- We have the Assignment Data in the "Assignment.csv". We will load the dataset and inspect whether the assignment was done properly between the two groups.
+## 🧪 A/B Testing Workflow
 
-### 5. 'Ctr_all.csv'
-- Clear Increament between the groups after the test started
-## 🧪 A/B Testing Process
-### 1. **Pre-Test Metrics Calculation**
-- **Daily Active Users (DAU)** were computed by filtering users with `activity_level > 0`.
-- Visualized DAU trends using Altair charts.
-- **CTR Baseline**: Mean CTR was calculated as **33.0%** with a standard deviation of **1.73%**.
+### 1. Pre-Test Metrics Calculation
 
-### 2. **Minimum Detectable Effect (MDE)**
-- Chosen MDE: **2.0%**, slightly higher than baseline standard deviation.
-- Ensures any observed difference is meaningful.
+* **DAU** calculated for users with `activity_level > 0`.
+* CTR baseline calculated as **33.0%** with a standard deviation of **1.73%**.
 
-### 3. **Sample Size Calculation**
-- Applied statistical formula for sample size calculation:
-  - Confidence Level: 95%
-  - Power: 80%
-  - MDE: 2%
-- Ensured both control and treatment groups meet the minimum required sample size.
+### 2. Minimum Detectable Effect (MDE)
 
-### 4. **A/B Test Execution**
-- Randomized user assignment into **Control (A)** and **Treatment (B)** groups.
-- Simulated CTR outcomes for each group.
-- Used hypothesis testing to determine statistical significance.
-
-  ## 🧪 A/B Testing Workflow
-
-### 1. Hypothesis Formulation
-- **Null Hypothesis (H₀)**: There is no difference in conversion rates between control and treatment.
-- **Alternative Hypothesis (H₁)**: The treatment group has a higher conversion rate.
-
-### 2. Define Key Parameters
-- **Baseline Conversion Rate**: 10%
-- **Minimum Detectable Effect (MDE)**: 3%
-- **Significance Level (α)**: 0.05
-- **Power (1-β)**: 0.80
+* Chosen MDE: **2%** to represent a meaningful uplift beyond baseline noise.
 
 ### 3. Sample Size Calculation
-Using `statsmodels.stats.power` module:
-- ✅ Minimum required sample size per group: **1,356**
 
-### 4. Data Generation
-Simulated data for:
-- **Control Group**: 10% conversion
-- **Treatment Group**: 13% conversion
+* Confidence Level: 95%
+* Power: 80%
+* MDE: 2%
+* Result: **1,356 users per group**
+
+### 4. Randomized Assignment
+
+* Randomized users into Control (A) and Treatment (B).
 
 ### 5. Hypothesis Testing
-- Test: Two-Proportion Z-Test
-- **p-value**: 0.0021
 
+* **Null Hypothesis (H0)**: No difference in conversion rates.
+* **Alternative Hypothesis (H1)**: Treatment conversion rate is higher.
+* Test: **Two-Proportion Z-Test**
+* **p-value**: **0.0021** (statistically significant)
+
+---
 
 ## 📊 Project Output
-- Generated visualizations for:
-  - Daily Active Users (DAU) trends
-![image](https://github.com/user-attachments/assets/08f5c67e-e86c-4834-96e3-92fd5f1c6d5a)
-![image](https://github.com/user-attachments/assets/b06dfebf-e8a4-4fd0-876d-69e3ab5136f3)
 
+* Visuals:
 
-  - Pre-test CTR distribution
-![image](https://github.com/user-attachments/assets/636970ce-a235-43f2-9adf-3ec544acc622)
+  * DAU trend
+  * CTR baseline distribution
+  * Sample size calculator result
 
-  - Sample size requirements
-![image](https://github.com/user-attachments/assets/79da2051-ec54-4306-8dad-093c74b2d890)
+* Result:
 
-- Confirmed whether uplift in CTR was statistically significant through hypothesis testing.
+  * Treatment group showed **3% higher CTR**.
+  * Statistically significant improvement confirmed via hypothesis test.
+
+![DAU Trend](https://github.com/user-attachments/assets/08f5c67e-e86c-4834-96e3-92fd5f1c6d5a)
+![CTR Distribution](https://github.com/user-attachments/assets/636970ce-a235-43f2-9adf-3ec544acc622)
+
+---
 
 ## 📈 Data Storytelling
 
-> “The A/B test showed that the proposed change resulted in a 3% uplift in conversion rate, with strong statistical support (p = 0.0021). With over 1,350 users per group, the test was powered to detect even modest improvements. The data clearly justified rolling out the change to all users.”
+> “The A/B test showed a **3% uplift** in conversion rate for the treatment group. The test met all statistical thresholds for reliability, confirming the new feature positively impacted user behavior.”
 
 ---
 
 ## 🧠 Decision-Making
 
-✔️ **Decision**: Roll out the proposed change to the entire user base.
+* **Decision**: Roll out the change to all users.
+* **Why?**:
 
-**Justification:**
-- Statistically significant uplift in conversion rate
-- Minimum detectable effect achieved
-- Sample size and power correctly calculated
-- Strong evidence supports a positive business outcome
+  * Statistically significant result (p = 0.0021)
+  * Required sample size and power met
+  * Meaningful and positive uplift in conversion
 
 ---
 
 ## 🌍 Project Impact
 
-- ✅ Reinforced data-driven culture in product development
-- ✅ Reduced risk of subjective decision-making
-- ✅ Introduced robust experimental design principles
-- ✅ Enabled measurable, repeatable results from testing
+* Reinforced **data-driven decision-making**
+* Reduced **subjective bias** in feature releases
+* Built a **repeatable experimentation framework**
+* Delivered **measurable insights** for product improvements
 
 ---
 
 ## 💼 Business Recommendations
 
-1. **Adopt A/B Testing as a Standard Practice**  
-   Integrate experimentation into every product change or partnership decision.
+1. **Institutionalize A/B Testing**
 
-2. **Always Calculate Sample Size Beforehand**  
-   Avoid underpowered tests that waste traffic and time.
+   * Adopt testing for all major feature releases.
+2. **Pre-Test Sample Size Calculation**
 
-3. **Monitor Guardrail Metrics**  
-   In real scenarios, track bounce rate, session duration, etc.
+   * Ensure statistical power in every experiment.
+3. **Track Guardrail Metrics**
 
-4. **Document Experiment Results**  
-   Maintain an experimentation logbook for internal learning and repeatability.
+   * Include bounce rate, session length, etc., during live tests.
+4. **Maintain Experiment Logs**
 
-5. **Use a Gradual Rollout Strategy**  
-   Start with 10–20% exposure and scale up as success is confirmed.
+   * Build internal knowledge around testing outcomes.
+5. **Use Phased Rollouts**
+
+   * Start with 10–20% exposure to reduce risks before full release.
 
 ---
-
-
-

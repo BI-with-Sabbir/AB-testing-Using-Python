@@ -2,12 +2,12 @@
 
 ## 📃 Context / Table of Contents
 
-* [📈 Project Overview](#project-overview)
-* [🎯 Project Goal](#project-goal)
-* [⚙️ Implementation Steps](#implementation-steps)
-* [📊 Results & Interpretation](#results--interpretation)
-* [💡 Real-World Applications](#real-world-applications)
-* [📄 Conclusion](#conclusion)
+* [📈 Project Overview](#-project-overview)
+* [🎯 Project Goal](#-project-goal)
+* [⚙️ Implementation Steps](#-implementation-steps)
+* [📊 Results & Interpretation](#-results--interpretation)
+* [💡 Real-World Applications](#-real-world-applications)
+* [📄 Conclusion](#-conclusion)
 
 ---
 

@@ -1,4 +1,6 @@
-# 🧪 A/B Testing Process with Optimum Sample Size Calculation
+# 🧪 A/B Testing Process with Optimum Sample Size Calculation\
+<img width="1155" height="524" alt="Untitled Diagram drawio (8)" src="https://github.com/user-attachments/assets/4a2b8a67-69fa-4da0-ac71-5110695775e5" />
+
 
 ## 🧭 Context / Table of Contents
 - [📌 Project Overview](#-project-overview)
